@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Theme.init({
     title: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    background: DataTypes.text,
   }, {
     sequelize,
     modelName: 'Theme',
