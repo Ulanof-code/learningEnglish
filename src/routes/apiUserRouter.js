@@ -1,5 +1,5 @@
 import express from "express";
-import {User} from '../db/models';
+import {User} from '../../db/models';
 import bcrypt from 'bcrypt';
 const apiUserRouter =express.Router()
 
@@ -29,4 +29,5 @@ apiUserRouter.post('/signup', async(req,res)=>{
         return res.sendStatus(500)
     }
 })
+
 export default apiUserRouter

@@ -1,21 +1,21 @@
 import express from "express"
 import bcrypt from 'bcrypt';
-import {User} from '../../db/models'
+import {User, Theme} from '../../db/models'
 
-const router = express.Router();
+const renderUserRouter = express.Router();
 
 
-router.get('/', (req,res)=>{
+renderUserRouter.get('/', (req,res)=>{
     res.render('Layout')
 })
 
-router.get('/signup', (req,res)=>{
+renderUserRouter.get('/signup', (req,res)=>{
     res.render("Layout")
 })
 
 
 
-router.post('/', async (req,res)=>{
+renderUserRouter.post('/', async (req,res)=>{
     try{
         const {email, pass}= req.body
         const foundUser = await User.findOne({
@@ -33,4 +33,11 @@ router.post('/', async (req,res)=>{
         return res.sendStatus(501)
     }
 })
-export default router
+renderUserRouter.get('/themes', async (req, res) => {
+    const allThemes = await Theme.findAll({
+      order: [['createdAt', 'DESC']], // тут сортировка чтоб отображались по убыванию карты
+    });
+    const initState = { allThemes };
+    res.render('Layout', initState);
+  });
+export default renderUserRouter
