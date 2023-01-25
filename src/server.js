@@ -2,16 +2,15 @@ import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import session from 'express-session';
-import store from 'session-file-store';
-// import indexRouter from './routes/indexRouter';
-// import apiRouter from './routes/apiRouter';
-import jsxRender from './utils/jsxRender';
-
+import storage from 'session-file-store';
+import renderUserRoutes from './routes/renderUserRoutes';
+import jsxRender from './routes/jsxRender';
+import apiUserRotes from './apiUserRotes'
 require('dotenv').config();
 
 const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
-const FileStore = store(session);
+const FileStore = storage(session);
 
 app.engine('jsx', jsxRender);
 app.set('view engine', 'jsx');
@@ -33,13 +32,23 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(session(sessionConfig));
 
-app.get('/', (req, res) => {
-  const initState = {};
-  res.render('Layout', { initState });
+app.use(session(sessionConfig));
+app.use((req, res, next) => {
+  res.locals.path = req.originalUrl;
+  // добавить сюда данные из сессии в res.locals
+  res.locals.user = req.session.user;
+  next();
 });
-// app.use('/', indexRouter);
+
+
+app.use('/', renderUserRoutes);
+app.use('/api/', apiUserRotes);
+
+// app.get('/', (req, res) => {
+//   const initState = {};
+//   res.render('Layout', { initState });
+// });
 // app.use('/api/v1', apiRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
