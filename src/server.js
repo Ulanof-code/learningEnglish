@@ -5,7 +5,7 @@ import session from 'express-session';
 import storage from 'session-file-store';
 import renderUserRoutes from './routes/renderUserRoutes';
 import jsxRender from './routes/jsxRender';
-import apiUserRotes from './apiUserRotes'
+import apiUserRouter from './apiUserRouter'
 require('dotenv').config();
 
 const PORT = process.env.SERVER_PORT || 3000;
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 
 
 app.use('/', renderUserRoutes);
-app.use('/api/', apiUserRotes);
+app.use('/api/', apiUserRouter);
 
 // app.get('/', (req, res) => {
 //   const initState = {};

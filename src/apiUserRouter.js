@@ -1,9 +1,9 @@
 import express from "express";
 import {User} from '../db/models';
 import bcrypt from 'bcrypt';
-const apiUserRotes =express.Router()
+const apiUserRouter =express.Router()
 
-apiUserRotes.post('/signup', async(req,res)=>{
+apiUserRouter.post('/signup', async(req,res)=>{
     try{
         const {password , email, name, } = req.body;
         console.log(password,email,name);
@@ -29,4 +29,4 @@ apiUserRotes.post('/signup', async(req,res)=>{
         return res.sendStatus(500)
     }
 })
-export default apiUserRotes
+export default apiUserRouter

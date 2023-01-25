@@ -31,7 +31,7 @@ export default function Signup() {
                     </label>
                 </div>
 
-                <button onClick={() => window.location = '/card'} type="submit" className="btn btn-primary">Sign Up</button>
+                <button onClick={() => window.location = '/thems'} type="submit" className="btn btn-primary">Sign Up</button>
 
 
             </form>
