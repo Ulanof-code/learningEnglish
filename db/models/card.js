@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     engWord: DataTypes.STRING,
     rusWord: DataTypes.STRING,
     themeId: DataTypes.INTEGER,
-    learned: DataTypes.BOOLEAN
+    learned: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Card',
