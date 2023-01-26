@@ -44,16 +44,16 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/', renderUserRouter);
+app.use('/', apiUserRouter);
 app.use('/api/', apiUserRouter);
 app.use('/api/thems', apiThemRouter);
 app.use('/api/card', apiCardRouter);
+app.use('/signup', renderUserRouter)
 // app.get('/', (req, res) => {
 //   const initState = {};
 //   res.render('Layout', { initState });
 // });
 // app.use('/api/v1', apiRouter);
-
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
 
 

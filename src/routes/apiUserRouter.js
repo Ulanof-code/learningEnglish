@@ -3,6 +3,35 @@ import {User} from '../../db/models';
 import bcrypt from 'bcrypt';
 const apiUserRouter =express.Router()
 
+
+
+
+apiUserRouter.get('/', (req,res)=>{
+    res.render('Layout')
+})
+
+
+apiUserRouter.post('/', async (req,res)=>{
+    try{
+        const {email, pass}= req.body
+        const foundUser = await User.findOne({
+            where:{ email },
+        })
+        if(!(foundUser && await bcrypt.compare(pass, foundUser.password))){
+            return res.sendStatus(401)
+        }
+        const user= JSON.parse(JSON.stringify(foundUser.password))
+        delete user.hashPass
+        req.session.user = user
+        return res.sendStatus(200)
+    } catch (err){
+        console.log(err, '<=======================');
+        return res.sendStatus(501)
+    }
+})
+
+
+
 apiUserRouter.post('/signup', async(req,res)=>{
     try{
         const {password , email, name, } = req.body;
