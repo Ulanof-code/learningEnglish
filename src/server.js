@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 
 app.use('/', apiUserRouter);
 app.use('/api/', apiUserRouter);
-app.use('/api/thems', apiThemRouter);
+app.use('/thems', renderUserRouter);
 app.use('/api/card', apiCardRouter);
 app.use('/signup', renderUserRouter)
 // app.get('/', (req, res) => {

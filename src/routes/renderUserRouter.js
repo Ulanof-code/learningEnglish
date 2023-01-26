@@ -1,6 +1,6 @@
 import express from "express"
 import bcrypt from 'bcrypt';
-import {User, Theme} from '../../db/models'
+import { User, Theme } from '../../db/models'
 
 const renderUserRouter = express.Router();
 
@@ -9,8 +9,8 @@ const renderUserRouter = express.Router();
 //     res.render('Layout')
 // })
 
-renderUserRouter.get('/', (req,res)=>{
-    res.render("Layout")
+renderUserRouter.get('/', (req, res) => {
+  res.render("Layout")
 })
 
 
@@ -33,11 +33,12 @@ renderUserRouter.get('/', (req,res)=>{
 //         return res.sendStatus(501)
 //     }
 // })
-renderUserRouter.get('/themes', async (req, res) => {
-    const allThemes = await Theme.findAll({
-      order: [['createdAt', 'DESC']], // тут сортировка чтоб отображались по убыванию карты
-    });
-    const initState = { allThemes };
-    res.render('Layout', initState);
+renderUserRouter.get('/thems', async (req, res) => {
+  const allThemes = await Theme.findAll({
+    order: [['createdAt', 'DESC']], // тут сортировка чтоб отображались по убыванию карты
   });
+  console.log(allThemes);
+  const initState = { allThemes };
+  res.render('Layout', initState);
+});
 export default renderUserRouter

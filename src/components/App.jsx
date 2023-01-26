@@ -12,7 +12,7 @@ export default function App({allThemes}) {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/main" element={<MainPage allThemes={allThemes} />} />
-        <Route path="/themes" element={<MainPage allThemes={allThemes} />} />
+        <Route path="/signup/thems" element={<MainPage allThemes={allThemes} />} />
         <Route path="/theme/:id" element={<CardWord allThemes={allThemes} />} />
       </Routes>
     </div>
