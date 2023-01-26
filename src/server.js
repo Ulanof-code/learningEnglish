@@ -8,6 +8,7 @@ import jsxRender from './utils/jsxRender';
 import apiUserRouter from './routes/apiUserRouter';
 import apiCardRouter from './routes/apiCardRouter';
 import apiThemRouter from './routes/apiThemRouter';
+
 require('dotenv').config();
 
 const PORT = process.env.SERVER_PORT || 3000;
@@ -19,14 +20,14 @@ app.set('view engine', 'jsx');
 app.set('views', path.join(__dirname, 'components'));
 
 const sessionConfig = {
-  name: 'user_sid', // Имя куки для хранения id сессии. По умолчанию - connect.sid 
-  secret: process.env.SESSION_SECRET ?? 'test', // Секретное слово для шифрования, может быть любым 
-  resave: true, // Пересохранять ли куку при каждом запросе 
+  name: 'user_sid', // Имя куки для хранения id сессии. По умолчанию - connect.sid
+  secret: process.env.SESSION_SECRET ?? 'test', // Секретное слово для шифрования, может быть любым
+  resave: true, // Пересохранять ли куку при каждом запросе
   store: new FileStore(),
-  saveUninitialized: false, // Создавать ли сессию без инициализации ключей в req.session 
+  saveUninitialized: false, // Создавать ли сессию без инициализации ключей в req.session
   cookie: {
-    maxAge: 1000 * 60 * 60 * 12, // Срок истечения годности куки в миллисекундах 
-    httpOnly: true, // Серверная установка и удаление куки, по умолчанию true 
+    maxAge: 1000 * 60 * 60 * 12, // Срок истечения годности куки в миллисекундах
+    httpOnly: true, // Серверная установка и удаление куки, по умолчанию true
   },
 };
 
@@ -43,17 +44,19 @@ app.use((req, res, next) => {
   next();
 });
 
+// app.use('/', apiUserRouter);
+// app.use('/api/', apiUserRouter);
+// app.use('/api/thems', apiThemRouter);
+// app.use('/api/card', apiCardRouter);
+// app.use('/signup', renderUserRouter);
 
 app.use('/', renderUserRouter);
+app.use('/', renderUserRouter);
 app.use('/api/', apiUserRouter);
-app.use('/api/thems', apiThemRouter);
+app.use('/thems', renderUserRouter);
 app.use('/api/card', apiCardRouter);
 app.use('/signup', apiUserRouter)
 app.use('/user/lk',renderUserRouter )
 
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
-
-
-
-

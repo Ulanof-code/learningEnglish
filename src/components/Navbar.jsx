@@ -2,7 +2,9 @@ import React from 'react'
 import axios from 'axios'
 
 export default function Navbar() {
-    
+    const enterProfile = () => {
+        window.location.href = '/user/lk'
+    }
     return (
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -11,7 +13,7 @@ export default function Navbar() {
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a class="navbar-brand" href="#">Hidden brand</a>
+                        <a class="navbar-brand" href="#">LEARN ENGLISH</a>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -23,10 +25,9 @@ export default function Navbar() {
                                 <a class="nav-link disabled">Disabled</a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="bu" placeholder="Search" aria-label="Search" />
-                            <button onClick={() => window.location = '/user/lk'} class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+
+                        <button onClick={enterProfile} class="btn btn-outline-success" type="button">Personal Area</button>
+
                     </div>
                 </div>
             </nav>
