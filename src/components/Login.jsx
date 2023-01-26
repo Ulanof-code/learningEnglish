@@ -11,24 +11,28 @@ export default function Login() {
             .cath((err) => setError(err));
     };
     return (
-        <div className="row">
-            <form onSubmit={loginHandler}>
-                <div className="mb-3">
-                    <label htmlFor="carsemail" className="form-label">
+        <div>
+            <body style={{ backgroundImage: "url('https://idc.edu/wp-content/uploads/2018/02/8-Ways-to-Learn-English-Faster.jpg')" }} >
+            </body>
+            <div className="row"  >
+                <form onSubmit={loginHandler}>
+                    <div className="mb-3">
+                        <label htmlFor="carsemail" className="form-label" style={{color:'black'}}>
                         Email address
                         <input type="email" name="email" className="form-control" id="carsemail" />
                     </label>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="carspass" className="form-label">
-                        Password
-                        <input type="password" name="pass" className="form-control" id="carspass" />
-                    </label>
-                </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-                {error.message && <div style={{ color: 'black' }}>{error.message}</div>}
-                <button onClick={() => window.location = '/signup'} type="button" className="btn btn-danger">check in</button>
-            </form>
-        </div>
+            </div>
+            <div className="mb-3">
+                <label htmlFor="carspass" className="form-label">
+                    Password
+                    <input type="password" name="pass" className="form-control" id="carspass" />
+                </label>
+            </div>
+            <button type="submit" className="btn btn-primary">Login</button>
+            {error.message && <div style={{ color: 'black' }}>{error.message}</div>}
+            <button onClick={() => window.location = '/signup'} type="button" className="btn btn-danger">check in</button>
+        </form>
+            </div >
+        </div >
     );
 }

@@ -4,10 +4,11 @@ import MainPage from './MainPage';
 import CardWord from './CardWord';
 import Login from './Login';
 import Signup from './Signup';
-export default function App({allThemes}) {
+import Navbar from './Navbar';
+export default function App({ allThemes }) {
   return (
-    <div className="container">
-
+  <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -15,6 +16,6 @@ export default function App({allThemes}) {
         <Route path="/themes" element={<MainPage allThemes={allThemes} />} />
         <Route path="/theme/:id" element={<CardWord allThemes={allThemes} />} />
       </Routes>
-    </div>
+    </>
   );
 }

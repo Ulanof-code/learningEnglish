@@ -1,6 +1,7 @@
 import express from "express";
 import {User} from '../../db/models';
 import bcrypt from 'bcrypt';
+import checkSignup from '../components/middlewares/checkSignup'
 const apiUserRouter =express.Router()
 
 
