@@ -24,7 +24,7 @@ export default function OneWord({ card, setMycard }) {
 
   return (
     <div className="card col-3">
-      <h5 className="card-title">{click ? card.rusWord : card.engWord}</h5>
+      <h5 className="card-title">{click ? card.engWord : card.rusWord}</h5>
       {/* <button type="button" onClick={openHandler} className="btn btn-danger" disabled={user?.id !== car?.User?.id}>Delete</button> */}
       {/* <h5 className="card-title">{card?.engWord}</h5> */}
       <button type="button" onClick={clickHandler} className="btn btn-warning">→</button>

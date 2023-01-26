@@ -20,7 +20,7 @@ renderUserRouter.get('/signup', (req, res) => {
   res.render('Layout');
 });
 
-renderUserRouter.get('/theme/:id', async (req, res) => {
+renderUserRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
   console.log(id);
   const allCards = await Card.findAll({ where: { themeId: id, learned: false } });

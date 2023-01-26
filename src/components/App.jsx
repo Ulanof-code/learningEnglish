@@ -5,7 +5,8 @@ import CardWord from './CardWord';
 import Login from './Login';
 import Signup from './Signup';
 import Navbar from './Navbar';
-import PersonalArea from './PersonalArea'
+import PersonalArea from './PersonalArea';
+
 export default function App({ allThemes, allCards }) {
   return (
     <>

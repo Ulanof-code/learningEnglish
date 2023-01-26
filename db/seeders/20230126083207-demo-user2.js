@@ -13,17 +13,102 @@ module.exports = {
 
     },
     {
-      engWord: 'Gull',
-      rusWord: 'Чайка',
+      engWord: 'Square',
+      rusWord: 'Площадь',
+      themeId: 1,
+
+    },
+    {
+      engWord: 'Garden',
+      rusWord: 'Сад',
+      themeId: 1,
+
+    },
+    {
+      engWord: 'Yard',
+      rusWord: 'Двор',
+      themeId: 1,
+
+    },
+    {
+      engWord: 'Fencing',
+      rusWord: 'Ограждение',
+      themeId: 1,
+
+    },
+    {
+      engWord: 'Tiger',
+      rusWord: 'Тигр',
       themeId: 2,
 
     },
     {
-      engWord: 'Сarp',
-      rusWord: 'Сазан',
+      engWord: 'Hippo',
+      rusWord: 'Бегемот',
       themeId: 2,
 
     },
+    {
+      engWord: 'Lynx',
+      rusWord: 'Рысь',
+      themeId: 2,
+
+    },
+    {
+      engWord: 'Horse',
+      rusWord: 'Конь',
+      themeId: 2,
+
+    },
+    {
+      engWord: 'Peacock',
+      rusWord: 'Павлин',
+      themeId: 2,
+
+    },
+    {
+      engWord: 'Cow',
+      rusWord: 'Корова',
+      themeId: 2,
+
+    },
+    {
+      engWord: 'Сucumber',
+      rusWord: 'Огурец',
+      themeId: 3,
+
+    },
+    {
+      engWord: 'Eggplant',
+      rusWord: 'Баклажан',
+      themeId: 3,
+
+    },
+    {
+      engWord: 'Shrimp',
+      rusWord: 'Креветка',
+      themeId: 3,
+
+    },
+    {
+      engWord: 'Cheese',
+      rusWord: 'Сыр',
+      themeId: 3,
+
+    },
+    {
+      engWord: 'Sausage',
+      rusWord: 'Колбаса',
+      themeId: 3,
+
+    },
+    {
+      engWord: 'Borsch',
+      rusWord: 'Борщ',
+      themeId: 3,
+
+    },
+
     ], {});
   },
 
