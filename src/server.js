@@ -3,9 +3,11 @@ import morgan from 'morgan';
 import path from 'path';
 import session from 'express-session';
 import storage from 'session-file-store';
-import renderUserRoutes from './routes/renderUserRoutes';
-import jsxRender from './routes/jsxRender';
-import apiUserRotes from './apiUserRotes'
+import renderUserRouter from './routes/renderUserRouter';
+import jsxRender from './utils/jsxRender';
+import apiUserRouter from './routes/apiUserRouter';
+import apiCardRouter from './routes/apiCardRouter';
+import apiThemRouter from './routes/apiThemRouter';
 require('dotenv').config();
 
 const PORT = process.env.SERVER_PORT || 3000;
@@ -42,13 +44,18 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/', renderUserRoutes);
-app.use('/api/', apiUserRotes);
-
+app.use('/', apiUserRouter);
+app.use('/api/', apiUserRouter);
+app.use('/api/thems', apiThemRouter);
+app.use('/api/card', apiCardRouter);
+app.use('/signup', renderUserRouter)
 // app.get('/', (req, res) => {
 //   const initState = {};
 //   res.render('Layout', { initState });
 // });
 // app.use('/api/v1', apiRouter);
-
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
+
+
+
+

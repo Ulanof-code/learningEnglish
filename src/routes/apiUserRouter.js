@@ -1,9 +1,38 @@
 import express from "express";
-import {User} from '../db/models';
+import {User} from '../../db/models';
 import bcrypt from 'bcrypt';
-const apiUserRotes =express.Router()
+const apiUserRouter =express.Router()
 
-apiUserRotes.post('/signup', async(req,res)=>{
+
+
+
+apiUserRouter.get('/', (req,res)=>{
+    res.render('Layout')
+})
+
+
+apiUserRouter.post('/', async (req,res)=>{
+    try{
+        const {email, pass}= req.body
+        const foundUser = await User.findOne({
+            where:{ email },
+        })
+        if(!(foundUser && await bcrypt.compare(pass, foundUser.password))){
+            return res.sendStatus(401)
+        }
+        const user= JSON.parse(JSON.stringify(foundUser.password))
+        delete user.hashPass
+        req.session.user = user
+        return res.sendStatus(200)
+    } catch (err){
+        console.log(err, '<=======================');
+        return res.sendStatus(501)
+    }
+})
+
+
+
+apiUserRouter.post('/signup', async(req,res)=>{
     try{
         const {password , email, name, } = req.body;
         console.log(password,email,name);
@@ -29,4 +58,5 @@ apiUserRotes.post('/signup', async(req,res)=>{
         return res.sendStatus(500)
     }
 })
-export default apiUserRotes
+
+export default apiUserRouter
