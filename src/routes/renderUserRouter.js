@@ -28,3 +28,6 @@ renderUserRouter.get('/thems/:id', (req, res) => {
   console.log(allCards);
   res.render('Layout', initState);
 });
+renderUserRouter.get('/user/:id', (req, res) => {
+  res.render('Layout');
+});

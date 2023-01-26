@@ -4,6 +4,7 @@ import MainPage from './MainPage';
 import CardWord from './CardWord';
 import Login from './Login';
 import Signup from './Signup';
+import PersonalArea from './PersonalArea';
 export default function App({allThemes, allCards}) {
   return (
     <div className="container">
@@ -13,6 +14,7 @@ export default function App({allThemes, allCards}) {
         <Route path="/main" element={<MainPage allThemes={allThemes} />} />
         <Route path="/thems" element={<MainPage allThemes={allThemes} />} />
         <Route path="/thems/:id" element={<CardWord allThemes={allThemes} allCards={allCards}/>} />
+        <Route path="/user/:id" element={<PersonalArea/>} />
       </Routes>
     </div>
   );
