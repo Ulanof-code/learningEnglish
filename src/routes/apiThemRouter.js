@@ -15,3 +15,7 @@ apiThemRouter.delete('/:id', async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+apiThemRouter.get('/:id', async (req, res) => {
+
+});
