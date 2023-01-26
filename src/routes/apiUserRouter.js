@@ -1,8 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../../db/models';
-
-const apiUserRouter = express.Router();
+import checkSignup from '../components/middlewares/checkSignup'
+const apiUserRouter =express.Router()
 
 // apiUserRouter.get('/', (req, res) => {
 //   res.render('Layout');

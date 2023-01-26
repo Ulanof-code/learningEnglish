@@ -15,16 +15,21 @@ renderUserRouter.get('/thems', async (req, res) => {
   const initState = { allThemes };
   res.render('Layout', initState);
 });
-export default renderUserRouter;
 
 renderUserRouter.get('/signup', (req, res) => {
-  res.render('Layout');
+    res.render('Layout');
 });
 
 renderUserRouter.get('/thems/:id', (req, res) => {
-  const { id } = req.params;
-  const allCards = Card.findAll({ where: { themeId: id } });
-  const initState = { allCards };
-  console.log(allCards);
-  res.render('Layout', initState);
+    const { id } = req.params;
+    const allCards = Card.findAll({ where: { themeId: id } });
+    const initState = { allCards };
+    console.log(allCards);
+    res.render('Layout', initState);
 });
+renderUserRouter.get('/user/lk',(req,res)=>{
+    res.render('Layout')
+} )
+
+
+export default renderUserRouter;
