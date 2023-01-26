@@ -3,8 +3,6 @@ import { Theme } from '../../db/models';
 
 const apiThemRouter = express.Router();
 
-export default apiThemRouter;
-
 apiThemRouter.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -19,3 +17,5 @@ apiThemRouter.delete('/:id', async (req, res) => {
 apiThemRouter.get('/:id', async (req, res) => {
 
 });
+
+export default apiThemRouter;

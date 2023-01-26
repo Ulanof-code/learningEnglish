@@ -50,9 +50,9 @@ app.use((req, res, next) => {
 // app.use('/api/card', apiCardRouter);
 // app.use('/signup', renderUserRouter);
 
-app.use('/', renderUserRouter);
 app.use('/api/', apiUserRouter);
 app.use('/api/thems', apiThemRouter);
 app.use('/api/card', apiCardRouter);
+app.use('/', renderUserRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

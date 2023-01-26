@@ -21,9 +21,11 @@ renderUserRouter.get('/signup', (req, res) => {
   res.render('Layout');
 });
 
-renderUserRouter.get('/thems/:id', (req, res) => {
+renderUserRouter.get('/theme/:id', async (req, res) => {
   const { id } = req.params;
-  const allCards = Card.findAll({ where: { themeId: id } });
+  console.log(id);
+  const allCards = await Card.findAll({ where: { themeId: id, learned: false } });
+  console.log(allCards);
   const initState = { allCards };
   console.log(allCards);
   res.render('Layout', initState);

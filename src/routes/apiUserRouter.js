@@ -14,6 +14,7 @@ apiUserRouter.post('/', async (req, res) => {
     const foundUser = await User.findOne({
       where: { email },
     });
+    //console.log(pass, foundUser.password);
     if (!(foundUser && await bcrypt.compare(pass, foundUser.password))) {
       return res.sendStatus(401);
     }
