@@ -6,7 +6,7 @@ import OneThemCard from './OneThemCard';
 export default function CarsPage({ allThemes, user }) {
   const [tema, setThemes] = useState(allThemes || []);
   return (
-    <div className="row">
+    <div className="row d-flex justify-content-center mt-2">
       {tema?.map((tem) => <OneThemCard setThemes={setThemes} user={user} tem={tem} key={tem?.id} />)}
     </div>
   );

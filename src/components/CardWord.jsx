@@ -1,20 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import OneWord from './OneWord';
 
-export default function CardWord({allCards}) {
+export default function CardWord({ allCards }) {
+
+  const [mycard, setMycard] = useState(allCards || []);
+  // console.log("hello",allCards);
   return (
     <div>
-{allCards?.map(card => 
-  <div className="card-body">
-  <h5 className="card-title">{card?.rusWord}</h5>
-  {/* <button type="button" onClick={openHandler} className="btn btn-danger" disabled={user?.id !== car?.User?.id}>Delete</button> */}
-  <h5 className="card-title">{card?.engWord}</h5>
-  <button type="button"  className="btn btn-danger">Изучено</button>
-
-</div>
-  )}
-</div>
+      {mycard
+        // .filter((card) => card.learned === false)
+        .map((card) => <OneWord card={card} key={card?.id} setMycard={setMycard} />)}
+    </div>
   );
 }
-
 
 // {tema?.map((tem) => <OneThemCard setThemes={setThemes} user={user} tem={tem} key={tem?.id} />)}

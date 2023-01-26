@@ -1,4 +1,3 @@
-'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -7,13 +6,13 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       engWord: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       rusWord: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       themeId: {
         type: Sequelize.INTEGER,
@@ -24,7 +23,8 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       learned: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
@@ -35,10 +35,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('NOW'),
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Cards');
-  }
+  },
 };

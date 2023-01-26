@@ -51,12 +51,12 @@ app.use((req, res, next) => {
 // app.use('/signup', renderUserRouter);
 
 app.use('/', renderUserRouter);
-app.use('/', renderUserRouter);
 app.use('/api/', apiUserRouter);
 app.use('/thems', renderUserRouter);
 app.use('/api/card', apiCardRouter);
-app.use('/signup', apiUserRouter)
-app.use('/user/lk',renderUserRouter )
+app.use('/signup', apiUserRouter);
+app.use('/user/lk', renderUserRouter);
 
+app.use('/', renderUserRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

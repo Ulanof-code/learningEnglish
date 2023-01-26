@@ -1,7 +1,9 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import checkSignup from '../components/middlewares/checkSignup'
-const apiUserRouter =express.Router()
+import checkSignup from '../components/middlewares/checkSignup';
+import { User } from '../../db/models';
+
+const apiUserRouter = express.Router();
 
 // apiUserRouter.get('/', (req, res) => {
 //   res.render('Layout');
@@ -13,6 +15,7 @@ apiUserRouter.post('/', async (req, res) => {
     const foundUser = await User.findOne({
       where: { email },
     });
+    // console.log(pass, foundUser.password);
     if (!(foundUser && await bcrypt.compare(pass, foundUser.password))) {
       return res.sendStatus(401);
     }
