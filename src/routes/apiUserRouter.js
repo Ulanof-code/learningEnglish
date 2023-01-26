@@ -11,6 +11,7 @@ const apiUserRouter = express.Router();
 apiUserRouter.post('/', async (req, res) => {
   try {
     const { email, pass } = req.body;
+
     const foundUser = await User.findOne({
       where: { email },
     });
