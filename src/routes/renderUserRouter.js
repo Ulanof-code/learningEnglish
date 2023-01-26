@@ -17,7 +17,7 @@ renderUserRouter.get('/thems', async (req, res) => {
 });
 
 renderUserRouter.get('/signup', (req, res) => {
-    res.render('Layout');
+  res.render('Layout');
 });
 
 renderUserRouter.get('/theme/:id', async (req, res) => {
@@ -29,9 +29,8 @@ renderUserRouter.get('/theme/:id', async (req, res) => {
   console.log(allCards);
   res.render('Layout', initState);
 });
-renderUserRouter.get('/user/lk',(req,res)=>{
-    res.render('Layout')
-} )
-
+renderUserRouter.get('/user/lk', (req, res) => {
+  res.render('Layout');
+});
 
 export default renderUserRouter;
