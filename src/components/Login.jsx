@@ -6,7 +6,7 @@ export default function Login() {
     const [error, setError] = useState({});
     const loginHandler = (e) => {
         e.preventDefault();
-        axios.post('/', Object.fromEntries(new FormData(e.target)))
+        axios.post('/api/', Object.fromEntries(new FormData(e.target)))
             .then(() => window.location = '/thems')
             .cath((err) => setError(err));
     };
