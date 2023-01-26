@@ -31,3 +31,6 @@ renderUserRouter.get('/thems/:id', (req, res) => {
 renderUserRouter.get('/user/:id', (req, res) => {
   res.render('Layout');
 });
+renderUserRouter.get('/user/newcard', (req, res) => {
+  res.render('Layout');
+});
