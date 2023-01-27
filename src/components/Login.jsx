@@ -10,8 +10,8 @@ export default function Login() {
       .cath((err) => setError(err));
   };
   return (
-    <div>
-      <body style={{ backgroundImage: "url('https://idc.edu/wp-content/uploads/2018/02/8-Ways-to-Learn-English-Faster.jpg')" }} />
+    <div style={{ backgroundImage: "url('https://idc.edu/wp-content/uploads/2018/02/8-Ways-to-Learn-English-Faster.jpg')", height: '100vh' }}>
+
       <div className="row">
         <div className="col-md-4 offset-md-8">
           <form onSubmit={loginHandler}>

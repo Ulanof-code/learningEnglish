@@ -23,12 +23,17 @@ renderUserRouter.get('/signup', (req, res) => {
 renderUserRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
   console.log(id);
-  const allCards = await Card.findAll({ where: { themeId: id, learned: false } });
-  console.log(allCards);
-  const initState = { allCards };
-  console.log(allCards);
-  res.render('Layout', initState);
+  try {
+    const allCards = await Card.findAll({ where: { themeId: id, learned: false } });
+    console.log(allCards);
+    const initState = { allCards };
+    console.log(allCards);
+    res.render('Layout', initState);
+  } catch (error) {
+    console.log(error);
+  }
 });
+
 renderUserRouter.get('/user/lk', (req, res) => {
   res.render('Layout');
 });
