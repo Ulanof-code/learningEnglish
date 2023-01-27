@@ -29,7 +29,12 @@ renderUserRouter.get('/:id', async (req, res) => {
   console.log(allCards);
   res.render('Layout', initState);
 });
+
 renderUserRouter.get('/user/lk', (req, res) => {
+  res.render('Layout');
+});
+
+renderUserRouter.get('/newtheme', (req, res) => {
   res.render('Layout');
 });
 

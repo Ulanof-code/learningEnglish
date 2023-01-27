@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import React from 'react';
+import axios from 'axios';
 
 export default function Navbar() {
   const enterProfile = () => {
@@ -24,7 +26,13 @@ export default function Navbar() {
             </ul>
 
             <button onClick={enterProfile} className="btn btn-outline-success" type="button">Personal Area</button>
+            <button onClick={enterProfile} className="btn btn-outline-success" type="button">Personal Area</button>
 
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
           </div>
         </div>
       </nav>

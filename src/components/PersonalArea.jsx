@@ -1,6 +1,12 @@
 import React from 'react';
 
 export default function PersonalArea() {
+  const newTheme = () => {
+    fetch('/newtheme')
+      .then(() => window.location.href = '/newtheme')
+      .catch(() => window.location.href = '/newtheme');
+  };
+
   return (
     <>
       <div className="d-flex flex-row mb-3">
@@ -28,6 +34,10 @@ export default function PersonalArea() {
         </div>
       </div>
       <button type="button" className="btn btn-primary btn-lg">Add cards</button>
+      <a href="/newtheme">
+        <button type="button" className="btn btn-primary btn-lg">Add theme</button>
+
+      </a>
     </>
   );
 }
