@@ -7,7 +7,7 @@ import renderUserRouter from './routes/renderUserRouter';
 import jsxRender from './utils/jsxRender';
 import apiUserRouter from './routes/apiUserRouter';
 import apiCardRouter from './routes/apiCardRouter';
-import apiThemRouter from './routes/apiThemRouter';
+import apiNewThemeRouter from './routes/apiNewThemeRouter';
 
 require('dotenv').config();
 
@@ -50,12 +50,14 @@ app.use((req, res, next) => {
 // app.use('/api/card', apiCardRouter);
 // app.use('/signup', renderUserRouter);
 
+app.use('/newtheme', renderUserRouter);
 app.use('/', renderUserRouter);
 app.use('/api/', apiUserRouter);
 app.use('/thems', renderUserRouter);
 app.use('/api/card', apiCardRouter);
 app.use('/signup', apiUserRouter);
 app.use('/user/lk', renderUserRouter);
+app.use('/api/newtheme', apiNewThemeRouter);
 
 app.use('/', renderUserRouter);
 

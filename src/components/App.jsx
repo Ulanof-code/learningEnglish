@@ -6,6 +6,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Navbar from './Navbar';
 import PersonalArea from './PersonalArea';
+import FormAddNewTheme from './FormAddNewTheme';
 
 export default function App({ allThemes, allCards }) {
   return (
@@ -18,6 +19,7 @@ export default function App({ allThemes, allCards }) {
         <Route path="/main" element={<MainPage allThemes={allThemes} />} />
         <Route path="/thems" element={<MainPage allThemes={allThemes} />} />
         <Route path="/thems/:id" element={<CardWord allThemes={allThemes} allCards={allCards} />} />
+        <Route path="/newtheme" element={<FormAddNewTheme />} />
       </Routes>
     </>
   );
