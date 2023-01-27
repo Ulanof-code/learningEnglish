@@ -22,17 +22,21 @@ export default function Signup() {
             Email address
             <input type="email" name="email" className="form-control" id="carsemail" />
           </label>
+        </div>
+        <div className="mb-3">
           <label htmlFor="carsuser" className="form-label">
             Login
             <input type="text" name="name" className="form-control" id="carsuser" />
           </label>
+        </div>
+        <div className="mb-3">
           <label htmlFor="carspass" className="form-label">
             Password
             <input type="password" name="password" className="form-control" id="carspass" />
           </label>
         </div>
 
-        <button onClick={() => window.location = '/thems'} type="submit" className="btn btn-primary">Sign Up</button>
+        <button onClick={() => window.location = '/thems'} type="submit" className="btn btn-outline-primary">Sign Up</button>
 
       </form>
     </div>

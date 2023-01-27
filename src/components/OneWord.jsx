@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function OneWord({ card, setMycard }) {
   const [click, setClick] = useState(true);
   const [show, setShow] = useState(true);
-
+  const [isClick, setIsClick] = useState(false);
   const clickHandler = () => {
     setClick((prev) => !prev);
   };
@@ -23,13 +23,24 @@ export default function OneWord({ card, setMycard }) {
   };
 
   return (
-    <div className="card col-3">
-      <h5 className="card-title">{click ? card.engWord : card.rusWord}</h5>
-      {/* <button type="button" onClick={openHandler} className="btn btn-danger" disabled={user?.id !== car?.User?.id}>Delete</button> */}
-      {/* <h5 className="card-title">{card?.engWord}</h5> */}
-      <button type="button" onClick={clickHandler} className="btn btn-warning">→</button>
-      <button type="button" onClick={showHandler} className="btn btn-success">✅</button>
 
+    <div className="w-40 card col-4 m-6">
+      <div className="row d-flex justify-content-center mt-2">{click ? card.engWord : card.rusWord}</div>
+      <button
+        type="button"
+        onClick={() => {
+          clickHandler();
+          setIsClick(!isClick);
+        }}
+        className="btn btn-success"
+        style={isClick ? {
+          transform: 'rotateY(-180deg)', transition: 'all 500ms ease 0s', backgroundColor: 'blue',
+        } : null}
+      >
+        →
+      </button>
+      <button type="button" onClick={showHandler} className="btn btn-danger">✅</button>
     </div>
+
   );
 }
