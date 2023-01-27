@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import OneWord from './OneWord';
 
 export default function CardWord({ allCards }) {
-
   const [mycard, setMycard] = useState(allCards || []);
   // console.log("hello",allCards);
   return (
-    <div>
+    <div className="d-flex justify-content-between mt-2 row">
       {mycard
         // .filter((card) => card.learned === false)
         .map((card) => <OneWord card={card} key={card?.id} setMycard={setMycard} />)}

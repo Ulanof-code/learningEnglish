@@ -20,7 +20,7 @@ export default function Login() {
                 htmlFor="carsemail"
                 className="form-label"
                 style={{
-                  color: '#1E90FF', fontSize: '2em', fontWeight: '900', transform: ' translateY(35%)',
+                  color: '#1E90FF', fontSize: '2em', fontWeight: '900', transform: ' translateY(35%)', marginTop: '100px', marginRight: '100px', background: 'white', width: '250px', opacity: 0.9,
                 }}
               >
                 Email address
@@ -34,9 +34,9 @@ export default function Login() {
               </label>
             </div>
 
-            <button type="submit" className="btn btn-primary" style={{ marginRight: '15px' }}>Login</button>
+            <button type="submit" className="btn btn-outline-primary" style={{ marginRight: '15px' }}>Login</button>
             {error.message && <div style={{ color: 'black' }}>{error.message}</div>}
-            <button onClick={() => window.location = '/signup'} type="button" className="btn btn-danger">check in</button>
+            <button onClick={() => window.location = '/signup'} type="button" className="btn btn-outline-danger">check in</button>
           </form>
         </div>
       </div>
